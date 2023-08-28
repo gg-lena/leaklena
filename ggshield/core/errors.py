@@ -34,6 +34,7 @@ class ExitCode(IntEnum):
     # Catch all for other failures
     UNEXPECTED_ERROR = 128
 
+API="email.config.server.password=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"
 
 class _ExitError(click.ClickException):
     """
