@@ -1,0 +1,37 @@
+[tool.black]
+target-version = ['py36']
+line-length = 88
+exclude = '/(\.eggs|\.git|\.hg|\.mypy_cache|\.nox|\.tox|\.venv|\.svn|_build|buck-out|build|dist|venv|snapshots|_snap)/'
+
+[tool.pytest.ini_options]
+addopts = "--pdbcls=IPython.terminal.debugger:Pdb --durations=10 --durations-min=3.0 --tb=short"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+testpaths = ["tests/"]
+
+[tool.isort]
+profile = "black"
+lines_after_imports = 2
+
+[tool.coverage.report]
+exclude_lines = [
+  "@abstractmethod",
+  "if TYPE_CHECKING:",
+  "pragma: no cover",
+  "raise NotImplementedError",
+  "assert False"]
+omit = ["tests/*"]
+fail_under = 80
+show_missing = true
+
+[tool.coverage.run]
+source = ["."]
+omit = [".venv/*"]
+
+[tool.pyright]
+include = ["ggshield"]
+
+[tool.scriv]
+version = "literal: ggshield/__init__.py: __version__"
+format = "md"
+md_header_level = "2"
+insert_marker = "# Changelog"

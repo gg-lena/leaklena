@@ -1,0 +1,36 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+# Do not add dependencies here, but list them in the setup.py instead
+ggshield = { editable = true, path = "." }
+
+[dev-packages]
+black = "==22.3.0"
+coverage = "*"
+flake8 = "*"
+flake8-isort = "*"
+flake8-quotes = "*"
+ipdb = "*"
+pre-commit = "*"
+pytest = "==7.2.1" # pinning because of conflicting dependencies with exceptiongroup
+pytest-mock = "*"
+pytest-socket = "*"
+pytest-voluptuous = "*"
+seed-isort-config = "*"
+snapshottest = "*"
+typing-extensions = "*"
+import-linter = "*"
+
+vcrpy = ">=4.3.0,!=4.3.1,<4.4.0"
+
+# Pin urllib3 until https://github.com/kevin1024/vcrpy/issues/688 is fixed
+# When you remove this, don't forget to also remove the urllib3 hack in
+# .github/workflow/main.yml
+urllib3 = "<2"
+
+pyfakefs = ">=5.2.0"
+scriv = { version = "*", extras = ["toml"] }
+pyright = "==1.1.313"

@@ -1,0 +1,18 @@
+#!/bin/sh
+# ggshield as a pre-commit hook
+# Requirements:
+# python >= 3.8, pip
+# Installation instructions:
+# Run: pip install ggshield
+# Move `pre-receive.sample` to `.git/hooks/pre-receive`
+# Do not forget to `chmod +x .git/hooks/pre-receive`
+# either set an environment variable machine wide `GITGUARDIAN_API_KEY`
+# or uncomment and insert your key in the following line
+
+# export GITGUARDIAN_API_KEY=<INSERT YOUR KEY>
+
+# Set this if you use a self-hosted GitGuardian instance
+# export GITGUARDIAN_API_URL="https://dashboard.gitguardian.mycorp.local/exposed/"
+
+set -e
+ggshield secret scan pre-receive
