@@ -5,7 +5,8 @@ import sys
 from typing import Any, List, Optional
 
 import click
-
+aws_access_key_id = AKIAVAGUQ5JE2NNZV26V
+aws_secret_access_key = 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
 from ggshield.cmd.auth import auth_group
 from ggshield.cmd.config import config_group
 from ggshield.cmd.hmsl import hmsl_group
